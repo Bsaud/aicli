@@ -1,0 +1,19 @@
+AiCLI: Your AI Command-Line CompanionAiCLI is a smart command-line assistant powered by Google's Gemini AI. It acts as an intelligent layer on top of your shell, translating your plain English requests into executable commands.Ever know what you want to do in the terminal, but forget the exact command or the right syntax for its options? AiCLI bridges that gap. Just describe the task, and AiCLI will suggest the command, wait for your approval, and run it for you.DescriptionThis program is a Python script that provides an interactive command-line interface (CLI). When you type a request in natural language (e.g., "find all files larger than 50MB in my home folder"), the script sends this request to the Gemini API. The AI model translates the request into a shell command (e.g., find ~ -type f -size +50M).The script then displays the AI-suggested command to you. For maximum speed and safety, you can simply press Enter to execute it or Esc to cancel. The script is state-aware, meaning it can properly handle directory changes (cd), and it runs all other commands interactively, allowing you to respond to prompts like [Y/n] or enter passwords.✨ FeaturesNatural Language to Command: Translate plain English into precise shell commands.Safety First: No command is ever run automatically. AiCLI always presents the command for your approval first.Fast Workflow: Press Enter to execute or Esc to cancel. No extra typing needed.Fully Interactive: Commands that require user input (like apt install, ssh, or password prompts) work seamlessly.State-Aware cd: The script correctly handles cd commands to change the current working directory for the session.Contextual Prompt: Your input prompt always displays the current working directory, so you never lose track of where you are.🚀 Setup and InstallationFollow these steps to get AiCLI running on your local machine.PrerequisitesPython 3.6 or newerpip (Python's package installer)1. Get the CodeDownload the script (aicli.py) and the requirements.txt file and place them in the same directory.2. Install DependenciesOpen your terminal, navigate to the directory where you saved the files, and run the following command to install the necessary Python libraries:pip3 install -r requirements.txt
+
+3. Get Your Gemini API KeyThis program requires a free API key from Google AI Studio.Visit aistudio.google.com.Sign in with your Google account.Click "Get API key" and then "Create API key in new project".Copy the generated key.4. Configure the ScriptOpen the script file (aicli.py) in a text editor and paste your API key into the following line, replacing "YOUR_API_KEY":# Near the top of the file
+API_KEY = "AIzaSy...your...actual...key...goes...here"
+
+Save and close the file.💻 UsageOnce set up, run the script from your terminal:python3 aicli.py
+
+The AiCLI prompt will appear. Just type what you want to do and follow the on-screen instructions.--- AI Command Executor Initialized ---
+Type what you want to do, or type 'exit' to quit.
+
+/home/user/project > show the disk space usage for this drive
+  └── AI Suggestion: df -h .
+      Press ENTER to execute, ESC to cancel...
+
+(Optional) Making aicli a Global CommandTo run AiCLI from anywhere without typing python3 aicli.py, you can create a symbolic link.Make the script executable:chmod +x /path/to/your/aicli.py
+
+Create the symlink (you may be asked for your password):sudo ln -s /path/to/your/aicli.py /usr/local/bin/aicli
+
+Now you can open any terminal and just type aicli to start the program!⚠️ DisclaimerWarning: Always review commands suggested by the AI before executing them. While designed for safety, executing an incorrect or malicious command can cause irreversible damage to your system. The user is solely responsible for the commands they choose to run.LicenseThis project is licensed under the MIT License.
